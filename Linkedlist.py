@@ -1,4 +1,4 @@
-# This code includes 2 classes - One class is responsible to perform 
+# This code includes 2 classes
 # One class is responsible to perform operations at node level
 # and another class is responsible to perform operations at linked list level
 
