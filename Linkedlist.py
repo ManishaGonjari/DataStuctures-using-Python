@@ -24,7 +24,7 @@ class Node(object):
             return False
         else:
             return True
-
+        
     def to_string(self):
         return str(self.data)
 
@@ -42,11 +42,9 @@ class linkedList(object):
         self.root = new_node
         self.size += 1
 
-
     def remove(self,d):
         this_node = self.root
         prev_node = None
-
         while(this_node):
             if(this_node.data == d and prev_node ==None):
                 self.root = this_node.next_data
@@ -61,7 +59,6 @@ class linkedList(object):
                 this_node = this_node.next_node
         return False
 
-
     def find(self,d):
         this_node = self.root
         while(this_node):
@@ -69,19 +66,16 @@ class linkedList(object):
                 return True
             else:
                 this_node = this_node.next_node
-
         return False
 
     def printlist(self):
         if(self.root is None):
             print "Empty list"
             return False
-
         this_node = self.root
         while(this_node.has_next()):
             this_node= this_node.get_next()
             print (this_node.to_string())
-
 
 def main():
     mylist =  linkedList()
