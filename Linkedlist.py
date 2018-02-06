@@ -19,9 +19,17 @@ class Node(object):
     def set_data(self,d):
          self.data = d
 
+    def has_next(self):
+        if (self.get_next() is None):
+            return False
+        else:
+            return True
+
+    def to_string(self):
+        return str(self.data)
+
 
 class linkedList(object):
-
     def __init__(self,r = None):
         self.root = r
         self.size = 0
@@ -40,16 +48,16 @@ class linkedList(object):
         prev_node = None
 
         while(this_node):
-            if(this_node.data == d and prev_node ==None):             # Deleting root element
+            if(this_node.data == d and prev_node ==None):
                 self.root = this_node.next_data
                 self.size -= 1
                 return True
-            elif(this_node.data == d):                                # Deleting non-root element
+            elif(this_node.data == d):
                 prev_node.next_node = this_node.next_node
                 self.size -= 1
                 return True
             else:
-                prev_node = this_node                                 # If element not found move to next element
+                prev_node = this_node
                 this_node = this_node.next_node
         return False
 
@@ -57,12 +65,22 @@ class linkedList(object):
     def find(self,d):
         this_node = self.root
         while(this_node):
-            if(this_node.data == d):                           
+            if(this_node.data == d):
                 return True
             else:
                 this_node = this_node.next_node
 
         return False
+
+    def printlist(self):
+        if(self.root is None):
+            print "Empty list"
+            return False
+
+        this_node = self.root
+        while(this_node.has_next()):
+            this_node= this_node.get_next()
+            print (this_node.to_string())
 
 
 def main():
@@ -73,6 +91,6 @@ def main():
     print (mylist.get_size())
     mylist.remove(4)
     print (mylist.get_size())
-
+    mylist.printlist()
 
 main()
