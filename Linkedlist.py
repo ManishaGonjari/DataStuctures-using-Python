@@ -24,10 +24,9 @@ class Node(object):
             return False
         else:
             return True
-        
+
     def to_string(self):
         return str(self.data)
-
 
 class linkedList(object):
     def __init__(self,r = None):
@@ -61,12 +60,11 @@ class linkedList(object):
 
     def find(self,d):
         this_node = self.root
-        while(this_node):
-            if(this_node.data == d):
+        while(this_node is not None):
+            if this_node.data == int(d):
                 return True
             else:
                 this_node = this_node.next_node
-        return False
 
     def printlist(self):
         if(self.root is None):
@@ -74,17 +72,25 @@ class linkedList(object):
             return False
         this_node = self.root
         while(this_node.has_next()):
-            this_node= this_node.get_next()
             print (this_node.to_string())
+            this_node= this_node.get_next()
+        print (this_node.to_string())
 
 def main():
-    mylist =  linkedList()
+    mylist = linkedList()
     mylist.add(2)
     mylist.add(4)
     mylist.add(6)
-    print (mylist.get_size())
-    mylist.remove(4)
-    print (mylist.get_size())
+    print "Linked list after add operation:"
     mylist.printlist()
+    mylist.remove(4)
+    print "Linked list after remove operation:"
+    mylist.printlist()
+    print "Size of linked list is: %d" %(mylist.get_size())
+    inp = raw_input ("Enter number to find:")
+    if (mylist.find(inp) == True):
+        print "Number found"
+    else:
+        print "Number not found"
 
 main()
